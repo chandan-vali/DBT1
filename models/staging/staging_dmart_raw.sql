@@ -1,16 +1,20 @@
+{{
+    config(
+        materialized='table'
+    )
+}}
+
 select
-Order_ID,
-upper(Customer_Name),
-Category,
-Sub_Category,
-City,
-coalesce(try_to_date(Order_Date,'dd-mm-yyyy'),
-try_to_date(Order_Date,'mm/dd/yyyy')) as Order_Date,
-Region,
-Sales,
-Discount,
-Profit,
-State
-from dev_db.raw.dmart_raw
-
-
+order_id,
+upper(customer_name) as customer_name,
+category,
+sub_category,
+city,
+coalesce(try_to_date(order_date, 'dd-mm-yyyy'), try_to_date(order_date, 'mm/dd/yyyy')) as order_date,
+region,
+sales,
+discount,
+profit,
+state
+from 
+{{ source('raw1', 'dmart_raw') }}

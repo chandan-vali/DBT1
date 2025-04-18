@@ -1,0 +1,10 @@
+version: 2
+models:
+  - name: staging_dmart_raw
+    columns:
+      - name: sales
+        tests:
+          - non_zero
+      - name: profit
+        tests:
+          - non_zero

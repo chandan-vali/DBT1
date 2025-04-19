@@ -37,15 +37,16 @@ clean-targets:         # directories to be removed by `dbt clean`
 
 models:
   my_new_project:
+    staging:
+      +database: dev_db
+      +schema: raw
     transformation:
       +database: dev_db
       +schema: transformation
     reporting:
       +database: dev_db
       +schema: publish
-    staging:
-      +database: dev_db
-      +schema: raw
+    
 
     
 seeds:

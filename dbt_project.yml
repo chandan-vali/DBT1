@@ -39,41 +39,41 @@ models:
   my_new_project:
     staging:
       +database:
-        {% if target.name == dev %} dev_db
-        {% elif target.name == test %} test_db
-        {% elif target.name == stage %} stage_db
-        {% elif target.name == prod %} prod_db
-        {% else %} invalid database
+        {% if target.name == 'dev' %} dev_db
+        {% elif target.name == 'test' %} test_db
+        {% elif target.name == 'stage' %} stage_db
+        {% elif target.name == 'prod' %} prod_db
+        {% else %} invalid_database
         {% endif %}
       schema: raw
 
     transformation:
       +database:
-        {% if target.name == dev %} dev_db
-        {% elif target.name == test %} test_db
-        {% elif target.name == stage %} stage_db
-        {% elif target.name == prod %} prod_db
-        {% else %} invalid database
+        {% if target.name == 'dev' %} dev_db
+        {% elif target.name == 'test' %} test_db
+        {% elif target.name == 'stage' %} stage_db
+        {% elif target.name == 'prod' %} prod_db
+        {% else %} invalid_database
         {% endif %}
       schema: transformation
 
     reporting:
       +database:
-        {% if target.name == dev %} dev_db
-        {% elif target.name == test %} test_db
-        {% elif target.name == stage %} stage_db
-        {% elif target.name == prod %} prod_db
-        {% else %} invalid database
+        {% if target.name == 'dev' %} dev_db
+        {% elif target.name == 'test' %} test_db
+        {% elif target.name == 'stage' %} stage_db
+        {% elif target.name == 'prod' %} prod_db
+        {% else %} invalid_database
         {% endif %}
       schema: publish
 
 seeds:
   my_new_project:
     +database:
-      {% if target.name ==dev %} dev_db
-      {% elif target.name ==test %} test_db
-      {% elif target.name ==stage %} stage_db
-      {% elif target.name ==prod %} prod_db
-      {% else %} invalid database
+      {% if target.name == 'dev' %} dev_db
+      {% elif target.name == 'test' %} test_db
+      {% elif target.name == 'stage' %} stage_db
+      {% elif target.name == 'prod' %} prod_db
+      {% else %} invalid_database
       {% endif %}
     
